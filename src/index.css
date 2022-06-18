@@ -1,10 +1,13 @@
+@import url('https://rsms.me/inter/inter.css');
+
 * {
   box-sizing: border-box;
 }
 
 html,
 body,
-#root {
+#root,
+main {
   width: 100%;
   height: 100%;
   margin: 0;
@@ -12,6 +15,40 @@ body,
 }
 
 body {
-  background: #f0f0f0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
 }
 
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #383343;
+  background: linear-gradient(120deg, #171734, #4d3b4e);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.title_head1 {
+  text-align: center;
+  position: block;
+  margin: auto 0;
+}
+
+.swipe {
+  text-align: center;
+  margin: 30px;
+  padding: 0;
+}
+
+.greet {
+  top: 200px;
+  left: 50%;
+  transform: translate3d(50%, 0, 0);
+  font-size: 10em;
+}
