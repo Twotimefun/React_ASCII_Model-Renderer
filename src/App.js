@@ -10,13 +10,13 @@ export default function App() {
   const [clicked, click] = useState(false)
 
   return (
-    <Canvas>
+    <Canvas >
       <color attach="background" args={['black']} />
       <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
       <pointLight position={[-10, -10, -10]} />
-      <ModelRender />
+      <ModelRender onClick={() => click(!clicked)} />
       <OrbitControls />
-      <AsciiRenderer invert />
+      {clicked ? <AsciiRenderer invert />: null}
     </Canvas>
   )
 }
