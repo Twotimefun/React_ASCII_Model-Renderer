@@ -1,4 +1,7 @@
 @import url('https://rsms.me/inter/inter.css');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
@@ -12,6 +15,15 @@ main {
   height: 100%;
   margin: 0;
   padding: 0;
+}
+
+.cardBack-title {
+  color: lightblue;
+  font-size: 3.5rem;
+}
+
+.card-ul-list {
+  font-size: 2em;
 }
 
 body {
@@ -45,11 +57,6 @@ body {
   background: linear-gradient(120deg, #000000, #ffffff);
 }
 
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 .title_head1 {
   text-align: center;
   position: block;
@@ -57,15 +64,3 @@ code {
   padding: 1em;
 }
 
-.swipe {
-  text-align: center;
-  margin: 30px;
-  padding: 0;
-}
-
-.greet {
-  top: 200px;
-  left: 50%;
-  transform: translate3d(50%, 0, 0);
-  font-size: 10em;
-}

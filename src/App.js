@@ -14,6 +14,7 @@ const OFFSET = 90
 const SLOW = config.gentle
 const FAST = { tension: 2000, friction: 100 }
 
+// Imports the glb file, add colours and textures to the model.
 function Urus(props) {
   const { scene, nodes, materials } = useGLTF('/lambo.glb')
   useLayoutEffect(() => {
@@ -25,9 +26,11 @@ function Urus(props) {
 }
 
 export default function App() {
+  // State to manage the ASCII and card text
   const [clicked, click] = useState(false)
   const [shown, setShown] = useState(false)
 
+  // State to manage the spring animation of the card being dragged down to reveal the extra info
   const [{ y }, set] = useSpring(() => ({ y: OFFSET }))
   const bind = useGesture(({ delta: [, y], down }) => set({ y: y > 400 ? 780 : !down ? OFFSET : y + OFFSET, config: !down || y > 400 ? SLOW : FAST }))
   const opacity = y.interpolate([180, 400], [0.2, 1], 'clamp')
@@ -42,24 +45,31 @@ export default function App() {
   function textReveal() {
     setShown(true);
   }
-  
+
   return (
     <>
+    {/* Allocates an offset to the card to see some of the background */}
     <CardBack onClick={() => set({ y: OFFSET })} style={{ opacity, transform }}>
-        <h1 style={{ color: 'lightblue' }}>Lamborghini Urus</h1>
-        <ul>
-          <li>4.0-liter twin-turbo V8 Engine</li>
-          <li>Produces 650 CV</li>
-          <li>850 Nm of torque</li>
-          <li>0 to 62 in 3.6 seconds</li>
-          <li>Top speed of 190mph, 305kmph</li>
-        </ul>
-        
+        <div class="grid grid-cols-2 gap-4">
+            <div>
+              <h1 className="cardBack-title">Lamborghini Urus</h1>
+              <ul className="card-ul-list">
+                <li>4.0-liter twin-turbo V8 Engine</li>
+                <li>Produces 650 CV</li>
+                <li>850 Nm of torque</li>
+                <li>0 to 62 in 3.6 seconds</li>
+                <li>Top speed of 190mph, 305kmph</li>
+              </ul>
+            </div>
+        </div>    
     </CardBack>
+
+    
     <Card {...bind()} style={{ transform: y.interpolate(y => `translate3d(0,${y}px,0)`) }}>
+
+      {/* State handling for the text being shown */}
       <h1 className='title_head1'>{shown ? "Drag Down" : 'Click to turn into ASCII'}</h1>
       <Canvas style={{height: '80%', border: 'white solid 1px'}} camera={{fov: 65 }}>
-        {/* <color attach="background" args={['black']} /> */}
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
                 <fog attach="fog" args={['#090909', 10, 20]} />

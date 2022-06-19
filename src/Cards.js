@@ -1,12 +1,14 @@
 import React from 'react'
 import { a } from 'react-spring'
 
+
+// Properties for the behind the card
+// uses props to pass info into the card
 export const CardBack = props => {
   return (
     <a.div
       {...props}
       style={{
-        flex: 1,
         borderTopRightRadius: 30,
         borderTopLeftRadius: 30,
         padding: 40,
@@ -20,6 +22,7 @@ export const CardBack = props => {
   )
 }
 
+// Properties for the front card
 export const Card = props => {
   return (
     <a.div
