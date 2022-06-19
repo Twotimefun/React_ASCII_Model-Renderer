@@ -32,7 +32,7 @@ export const Card = props => {
         top: 0,
         flex: 1,
         fontSize: '0.8em',
-        backgroundImage: 'linear-gradient(#3d5cff, #171720)',
+        backgroundImage: 'linear-gradient(#000000,#000000)',
         borderTopRightRadius: 30,
         borderTopLeftRadius: 30,
         padding: 24,

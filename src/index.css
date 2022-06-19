@@ -19,7 +19,22 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow: hidden;
+  overflow-x: hidden;
+  background-color: #000000;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3); 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5); 
 }
 
 #root {
@@ -27,8 +42,9 @@ body {
   justify-content: center;
   align-items: center;
   background: #383343;
-  background: linear-gradient(120deg, #171734, #4d3b4e);
+  background: linear-gradient(120deg, #000000, #ffffff);
 }
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -38,6 +54,7 @@ code {
   text-align: center;
   position: block;
   margin: auto 0;
+  padding: 1em;
 }
 
 .swipe {
